@@ -1,0 +1,13 @@
+name: Prison
+version: 1.0.0
+main: io.github.qolarnix.prison.Prison
+description: Custom prison implementation
+author: polarnix
+website: https://polarnix.com
+api-version: '1.21.1'
+commands:
+  prison:
+    description: Utils for managing prisons.
+    usage: /prison <command>
+    aliases: [p]
+    permissions: prison.admin
