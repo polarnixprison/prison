@@ -7,20 +7,30 @@ public class Prison extends JavaPlugin {
 
     public static Prison plugin;
     private Region region;
+    private Blocks blockManager;
 
     @Override
     public void onEnable() {
         plugin = this;
         region = new Region();
+        blockManager = new Blocks();
 
         getLogger().info("Prison plugin enabled!");
         saveDefaultConfig();
 
-        // classes
+        // region
         Bukkit.getPluginManager().registerEvents(region, this);
 
         // commands
         getCommand("prison").setExecutor(new Commands());
+
+        // blocks
+        blockManager.initializeBlocks();
+        Bukkit.getPluginManager().registerEvents(blockManager, this);
+    }
+
+    public Blocks getBlocks() {
+        return blockManager;
     }
 
     public Region getRegion() {
